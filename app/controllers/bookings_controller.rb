@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def update
