@@ -1,0 +1,4 @@
+<h3>Your booking is <%= @booking.id %></h3>
+<p>Stard date : <%= @booking.start_date %></p>
+<p>End date : <%= @booking.end_date %></p>
+<button class="btn btn-flat"><%= link_to "Edit", edit_user_booking_path(@user, @booking)%></button>
