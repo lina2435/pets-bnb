@@ -6,7 +6,6 @@ class CreateFlats < ActiveRecord::Migration[6.0]
       t.integer :price_per_night
       t.integer :number_of_pets
       t.text :description
-      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
