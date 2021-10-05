@@ -2,6 +2,7 @@
   <h3>Alojamientos para tu mascota</h3>
   <div class="row">
     <div class="col-8">
+<<<<<<< HEAD
         <div class="cards">
           <% @flats.each do |flat| %>
             <%= link_to flat_path(:id => flat.id ) do %>
@@ -15,6 +16,20 @@
                     <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
                     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
                   </div>
+=======
+      <div class="cards">
+        <% @flats.each do |flat| %>
+          <div class="card-trip">
+            <img src="https://images.unsplash.com/photo-1596957901846-a0722f546502?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBldHMlMjBpbiUyMGhvbWV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" />
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= flat.id %> <%= flat.title %></h2>
+                  <p><%= flat.description %></p>
+                </div>
+                <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                <%= link_to 'Edit', edit_flat_path(flat), class: 'ml-3 text-warning' %>
+>>>>>>> 9c83879e2db3763a5fd465fd0ce6a38de829277d
               </div>
             <% end %>
           <% end %>
@@ -23,4 +38,3 @@
     <div class="col-4"></div>
   </div>
 </div>
-
