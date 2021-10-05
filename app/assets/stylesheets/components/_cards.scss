@@ -102,3 +102,17 @@ h3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.card-columns{
+  max-height: 233px;
+  overflow: overlay;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
