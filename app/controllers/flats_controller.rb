@@ -10,13 +10,9 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
-    puts "errors: #{@flat.errors.count}"
-    @flat.user
     if @flat.save
-      puts "aqui"
       redirect_to flats_path
     else
-      puts "aya"
       render :new
     end
   end
