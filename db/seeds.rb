@@ -3,5 +3,17 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+puts "Cleaning database..."
+Flat.destroy_all
+
+puts "Creating flats..."
+flats = { title: 'star house', address: 'miraflores', price_per_night: 25, number_of_pets: 2, description: 'Casa de 230mt2 con jardin interno', user_id: 1 }
+
+[ flats ].each do |attributes|
+  flat = Flat.create!(attributes)
+  puts "Created #{flat.title}"
+end
+puts "Finished!"
