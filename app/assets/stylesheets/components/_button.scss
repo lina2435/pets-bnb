@@ -2,11 +2,12 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: $light-blue;
   transition: background 0.3s ease;
-}
+  font-weight: bold;
 
-.btn-flat:hover {
-  background: #1BCB7F;
+  &:hover {
+  background: $light-blue-pale;
   color: white;
+  }
 }
