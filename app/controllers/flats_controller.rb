@@ -1,14 +1,26 @@
 class FlatsController < ApplicationController
   def index
-    @flats = Flat.all
+    @flats = Flat.order("id ASC").all
   end
 
   def show
   end
 
+  def edit
+    @flat = Flat.find(params[:id])
+  end
+
+  def update
+    @flat = Flat.find(params[:id])
+    if @flat.update(flat_params)
+      redirect_to flats_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def new
     @flat = Flat.new
-    puts Flat.all.size
   end
 
   def create
