@@ -11,11 +11,15 @@
           <% @flats.each do |flat| %>
             <%= link_to build_flat_path(flat) do %>
               <div class="card-trip">
-                <img src="https://images.unsplash.com/photo-1596957901846-a0722f546502?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBldHMlMjBpbiUyMGhvbWV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" />
-                <div class="card-trip-infos">
-                  <div>
-                    <h2><%= flat.title %></h2>
-                    <p><%= flat.description %></p>
+                <%= cl_image_tag flat.photos.first.key, height: 150, width: 250, crop: :fill %>
+                  <div class="card-trip-infos">
+                    <div>
+                      <h2><%= flat.title %></h2>
+                      <p><%= flat.description %></p>
+                    </div>
+                    <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+
                   </div>
                   <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
                   <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
