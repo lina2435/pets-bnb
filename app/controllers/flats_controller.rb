@@ -42,6 +42,6 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :address, :number_of_pets, :price_per_night, :description)
+    params.require(:flat).permit(:title, :address, :number_of_pets, :price_per_night, :description, photos: [])
   end
 end
