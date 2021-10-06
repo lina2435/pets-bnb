@@ -1,7 +1,18 @@
 class FlatsController < ApplicationController
+  helper_method :build_flat_path
+
   def index
-    # @flats = Flat.order("id ASC").all
-    @flats = policy_scope(Flat)
+    @is_my_flats = params[:myflats] == '1'
+    if !@is_my_flats
+      @flats = policy_scope(Flat)
+    else
+      user_id = current_user.id
+      @flats = policy_scope(Flat).where("user_id = #{user_id}")
+    end
+  end
+
+  def build_flat_path(flat)
+    @is_my_flats ? edit_flat_path(flat) : flat_path(flat)
   end
 
   def show
@@ -12,14 +23,18 @@ class FlatsController < ApplicationController
 
   def edit
     @flat = Flat.find(params[:id])
+    authorize @flat
   end
 
   def update
     @flat = Flat.find(params[:id])
+    authorize @flat
     if @flat.update(flat_params)
-      redirect_to flats_path
+      flash[:success] = "Se actualizó correctamente"
+      redirect_to flats_path(myflats: '1')
     else
-      render :edit, status: :unprocessable_entity
+      flash[:alert] = "Ingrese datos correctos"
+      redirect_to edit_flat_path(@flat)
     end
   end
 
@@ -34,7 +49,7 @@ class FlatsController < ApplicationController
     @flat.user = @user
     authorize @flat
     if @flat.save
-      redirect_to flats_path
+      redirect_to flats_path(myflats: '1')
     else
       render :new
     end
@@ -42,8 +57,9 @@ class FlatsController < ApplicationController
 
   def destroy
     @flat = Flat.find(params[:id])
+    authorize @flat
     @flat.destroy
-    redirect_to flats_path
+    redirect_to flats_path(myflats: '1')
   end
 
   private
