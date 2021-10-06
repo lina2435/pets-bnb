@@ -1,11 +1,13 @@
 class FlatsController < ApplicationController
   def index
-    @flats = Flat.order("id ASC").all
+    # @flats = Flat.order("id ASC").all
+    @flats = policy_scope(Flat)
   end
 
   def show
     @flat = Flat.find(params[:id])
     @booking = Booking.new
+    authorize @flat
   end
 
   def edit
@@ -23,10 +25,14 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
+    authorize @flat
   end
 
   def create
+    @user = current_user
     @flat = Flat.new(flat_params)
+    @flat.user = @user
+    authorize @flat
     if @flat.save
       redirect_to flats_path
     else
