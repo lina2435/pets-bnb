@@ -1,6 +1,6 @@
 <div class="container my-5">
   <%= form_for([@flat, @booking]) do |f| %>
-
+    <p>Book now for S/. <%= @flat.price_per_night %>/night</p>
     <div class="form-group">
       <%= f.label :start_date %>
       <%= f.date_field :start_date, class: 'form-control' %>
