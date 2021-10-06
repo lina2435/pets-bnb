@@ -35,6 +35,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.flat = @flat
     @booking.status = "pending"
+    @booking.number_of_days = @booking.end_date - @booking.start_date
+    @booking.total_price = @flat.price_per_night * @booking.number_of_days
     authorize @booking
     if @booking.save
       redirect_to flat_booking_path(@flat, @booking)
