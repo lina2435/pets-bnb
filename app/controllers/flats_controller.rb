@@ -5,10 +5,16 @@ class FlatsController < ApplicationController
   def index
     @is_my_flats = params[:myflats] == '1'
     if !@is_my_flats
-      @flats = policy_scope(Flat)
+      @flats = policy_scope(Flat).geocoded
     else
       user_id = current_user.id
-      @flats = policy_scope(Flat).where("user_id = #{user_id}")
+      @flats = policy_scope(Flat).where("user_id = #{user_id}").geocoded
+    end
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
     end
   end
 
