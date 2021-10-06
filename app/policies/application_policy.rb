@@ -36,6 +36,10 @@ class ApplicationPolicy
     false
   end
 
+  def user_is_host?
+    user.host
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

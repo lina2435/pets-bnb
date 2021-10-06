@@ -11,7 +11,9 @@
           <% @flats.each do |flat| %>
             <%= link_to build_flat_path(flat) do %>
               <div class="card-trip">
-                <%= cl_image_tag flat.photos.first.key, height: 150, width: 250, crop: :fill %>
+                <% if !flat.photos.empty?  %>
+                  <%= cl_image_tag flat.photos.first.key, height: 150, width: 250, crop: :fill %>
+                <% end %>
                   <div class="card-trip-infos">
                     <div>
                       <h2><%= flat.title %></h2>
