@@ -46,24 +46,7 @@
       <div class="booking-card">
        <!-- card-reservas -->
       <div class="container">
-        <%= form_with url: new_user_session_path, method: :get do |f| %>
-            <p>Price per night: S/. <%= @flat.price_per_night  %></p>
-            <div class="form-group">
-              <%= f.label :start_date %>
-              <%= f.date_field :start_date, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :end_date %>
-              <%= f.date_field :end_date, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :number_of_pets %>
-              <%= f.number_field :number_of_pets, in: 1..5, class: 'form-control' %>
-            </div>
-            <div class="my-3 text-center flex-grow-1">
-            <%= f.submit "Book now", class: 'btn btn-flat' %>
-            </div>
-         <% end %>
+          <%= render "./bookings/form"%>
         </div>
       </div>
     </div>

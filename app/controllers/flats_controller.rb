@@ -1,5 +1,6 @@
 class FlatsController < ApplicationController
   helper_method :build_flat_path
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @is_my_flats = params[:myflats] == '1'
@@ -17,6 +18,7 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+    @user = current_user
     @booking = Booking.new
     authorize @flat
   end

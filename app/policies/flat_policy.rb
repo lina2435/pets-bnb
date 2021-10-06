@@ -1,7 +1,7 @@
 class FlatPolicy < ApplicationPolicy
 
   def show?
-    true  # Anyone can view a restaurant
+    true  # Anyone can view a flat
   end
 
   def create?
