@@ -1,20 +1,25 @@
 <div class="container mt-2">
-  <h3>Alojamientos para tu mascota</h3>
+  <% if @is_my_flats %>
+    <h3>Mis alojamientos</h3>
+    <p>Da click en un alojamiento para editarlo</p>
+  <% else  %>
+    <h3>Alojamientos para tu mascota</h3>
+  <% end  %>
   <div class="row">
     <div class="col-8">
         <div class="cards">
           <% @flats.each do |flat| %>
-            <%= link_to flat_path(:id => flat.id ) do %>
+            <%= link_to build_flat_path(flat) do %>
               <div class="card-trip">
                 <img src="https://images.unsplash.com/photo-1596957901846-a0722f546502?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBldHMlMjBpbiUyMGhvbWV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" />
-                  <div class="card-trip-infos">
-                    <div>
-                      <h2><%= flat.title %></h2>
-                      <p><%= flat.description %></p>
-                    </div>
-                    <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
-                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                <div class="card-trip-infos">
+                  <div>
+                    <h2><%= flat.title %></h2>
+                    <p><%= flat.description %></p>
                   </div>
+                  <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                </div>
               </div>
             <% end %>
           <% end %>
@@ -23,4 +28,3 @@
     <div class="col-4"></div>
   </div>
 </div>
-
