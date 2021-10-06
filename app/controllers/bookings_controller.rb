@@ -4,13 +4,14 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @flat = Flat.find(params[:flat_id])
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def edit
     @booking = Booking.find(params[:id])
-    @user = User.find(params[:user_id])
+    @flat = Flat.find(params[:flat_id])
   end
 
   def update
@@ -23,16 +24,20 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @flat = Flat.find(params[:flat_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
+    @flat = Flat.find(params[:flat_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.flat = @flat
     @booking.status = "pending"
+    authorize @booking
     if @booking.save
-      redirect_to user_booking_path(@booking, @user)
+      redirect_to flat_booking_path(@flat, @booking)
     else
       render :new
     end
@@ -47,6 +52,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :user_id, :flat_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

@@ -1,4 +1,7 @@
-<h3>Your booking is <%= @booking.id %></h3>
-<p>Stard date : <%= @booking.start_date %></p>
-<p>End date : <%= @booking.end_date %></p>
-<button class="btn btn-flat"><%= link_to "Edit", edit_user_booking_path(@user, @booking)%></button>
+<div class="container">
+  <h3>Your booking is <%= @booking.id %></h3>
+  <p>Stard date : <%= @booking.start_date %></p>
+  <p>End date : <%= @booking.end_date %></p>
+  <%= @booking.end_date - @booking.start_date %>
+  <button class="btn btn-flat"><%= link_to "Back", root_path%></button>
+</div>
