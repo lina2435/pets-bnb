@@ -1,10 +1,15 @@
 <div class="container mt-2">
-  <h3>Alojamientos para tu mascota</h3>
+  <% if @is_my_flats %>
+    <h3>Mis alojamientos</h3>
+    <p>Da click en un alojamiento para editarlo</p>
+  <% else  %>
+    <h3>Alojamientos para tu mascota</h3>
+  <% end  %>
   <div class="row">
     <div class="col-8">
         <div class="cards">
           <% @flats.each do |flat| %>
-            <%= link_to flat_path(:id => flat.id ) do %>
+            <%= link_to build_flat_path(flat) do %>
               <div class="card-trip">
                 <%= cl_image_tag flat.photos.first.key, height: 150, width: 250, crop: :fill %>
                   <div class="card-trip-infos">
@@ -14,7 +19,11 @@
                     </div>
                     <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
                     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+
                   </div>
+                  <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                </div>
               </div>
             <% end %>
           <% end %>
@@ -23,4 +32,3 @@
     <div class="col-4"></div>
   </div>
 </div>
-
