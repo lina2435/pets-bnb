@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h3>My bookings</h3>
+  <% @bookings.each do |booking| %>
+  <div class="notification">
+    <div class="notification-content">
+      <p><strong><%= booking.status.capitalize %></strong></p>
+      <p>Number of days: <%= booking.number_of_days %></p>
+      <p>Total price: S/. <%= booking.total_price %></p>
+      <p>Start date: <%= booking.start_date %></p>
+      <p>End date: <%= booking.end_date %></p>
+      <p>Flat: <%= booking.flat.title %></p>
+    </div>
+
+    <div class="notification-actions">
+      <%= link_to "Accept", edit_flat_booking_path(booking.flat, booking), class: "fas fa-pencil-alt" %>
+      <%= link_to "Cancel", "#", class: "far fa-trash-alt" %>
+    </div>
+  </div>
+  <%end %>
+</div>
