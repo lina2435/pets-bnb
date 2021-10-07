@@ -28,6 +28,7 @@
             <% if policy(Flat).user_is_host? %>
               <%= link_to "Create Flats", new_flat_path, class: "dropdown-item" %>
               <%= link_to "My flats", flats_path(myflats: '1'), class: "dropdown-item" %>
+              <%= link_to "My bookings", bookings_as_owner_path, class: "dropdown-item" %>
             <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

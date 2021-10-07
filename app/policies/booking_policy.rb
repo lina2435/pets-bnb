@@ -7,6 +7,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def bookings_as_owner?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
