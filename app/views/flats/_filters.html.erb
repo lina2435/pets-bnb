@@ -1,0 +1,42 @@
+
+<%= form_with url: flats_path, method: :get, local: true do |form| %>
+  <div class="d-flex align-items-center">
+    <div class="form-group col-4">
+      <%= form.label :priceRange, "Rango de precios" %>
+      <%= form.select :priceRange,
+        options_for_select([
+          ['Todos',nil],
+          ['Menos de $100','1'],
+          ['De $100 a $200','2'],
+          ['De $200 a más','3'],
+        ], @query_price),
+        {},
+        { class:"form-control" } %>
+    </div>
+    <div class="form-group col-4">
+      <%= form.label :petRange, "Rango de animales" %>
+      <%= form.select :petRange,
+        options_for_select([
+          ['Todos',nil],
+          ['1','1'],
+          ['2','2'],
+          ['3','3'],
+          ['De 4 a más','4'],
+        ], @query_pet_range),
+        {},
+        { class:"form-control" } %>
+    </div>
+    <%# <div class="form-group col-4">
+      <%= form.label :availability, "Disponibilidad" %>
+      <%#= form.select :availability,
+        options_for_select([
+          ['Todos',nil],
+          ['Disponible','1'],
+          ['No disponible','2'],
+        ]),
+        {},
+        { class:"form-control" } %>
+
+    <%= form.submit "Filtrar", class: "btn btn-primary" %>
+  </div>
+<% end %>
