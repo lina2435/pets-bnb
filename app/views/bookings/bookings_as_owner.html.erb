@@ -13,7 +13,7 @@
 
     <div class="notification-actions">
       <%= link_to "Accept", edit_flat_booking_path(booking.flat, booking), class: "fas fa-pencil-alt" %>
-      <%= link_to "Cancel", "#", class: "far fa-trash-alt" %>
+      <%= link_to "Cancel", delete_booking_path(booking.flat, booking), method: :delete, class: "far fa-trash-alt", data: { confirm: "Are you sure?" } %>
     </div>
   </div>
   <%end %>

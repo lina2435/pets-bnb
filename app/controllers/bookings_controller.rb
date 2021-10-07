@@ -58,7 +58,8 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to flats_path
+    redirect_to bookings_as_owner_path
+    authorize @booking
   end
 
   private
