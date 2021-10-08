@@ -1,8 +1,8 @@
-<div class="container mt-2">
+<div class="container mt-4">
   <%= render "filters", flat: @flat %>
   <% if @is_my_flats %>
-    <h3>Mis alojamientos</h3>
-    <p>Da click en un alojamiento para editarlo</p>
+    <h3 class="title-h3">Mis alojamientos</h3>
+    <p class="text-p">Da click en un alojamiento para editarlo</p>
   <% else  %>
     <h3>Alojamientos para tu mascota</h3>
   <% end  %>
@@ -13,7 +13,7 @@
           <%= link_to build_flat_path(flat) do %>
             <div class="card-trip">
               <% if !flat.photos.empty?  %>
-                <%= cl_image_tag flat.photos.first.key, height: 150, width: 250, crop: :fill %>
+                <%= cl_image_tag flat.photos.first.key, height: 150, width: 200, crop: :fill %>
               <% end %>
               <div class="card-trip-infos">
                 <div>
