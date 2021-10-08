@@ -7,6 +7,10 @@
   font-weight: bold;
   border-color: transparent;
   font-size: 17px;
+  text-decoration: none !important;
+  display: inline-block;
+  text-align: center;
+  min-width: 130px;
   &:hover {
     background: $nani-hover;
     color: white;
@@ -24,6 +28,8 @@
   font-size: 17px;
   text-decoration: none !important;
   display: inline-block;
+  text-align: center;
+  min-width: 130px;
   &:hover {
     background: rgba($red, 0.1);
   }
@@ -39,7 +45,26 @@
   font-size: 17px;
   text-decoration: none !important;
   display: inline-block;
+  text-align: center;
   margin-bottom: -16px;
+  min-width: 130px;
+  &:hover {
+    background: rgba($red, 0.1);
+  }
+}
+.btn-password {
+  color: $nani !important;
+  padding: 8px 28px;
+  border-radius: 4px;
+  background: transparent;
+  transition: background 0.4s ease;
+  font-weight: bold;
+  border-color: transparent;
+  font-size: 17px;
+  text-decoration: none !important;
+  display: inline-block;
+  text-align: center;
+  min-width: 130px;
   &:hover {
     background: rgba($red, 0.1);
   }
