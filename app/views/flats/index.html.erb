@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class=" mt-4">
   <%= render "filters", flat: @flat %>
   <% if @is_my_flats %>
     <h3 class="title-h3">Mis alojamientos</h3>
@@ -10,7 +10,7 @@
     <div class="col-8">
       <div class="cards">
         <% @flats.each do |flat| %>
-          <%= link_to build_flat_path(flat) do %>
+          <%= link_to  build_flat_path(flat), class: "card-trip-wrapper" do %>
             <div class="card-trip">
               <% if !flat.photos.empty?  %>
                 <%= cl_image_tag flat.photos.first.key, height: 150, width: 200, crop: :fill %>
