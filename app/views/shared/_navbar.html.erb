@@ -27,14 +27,18 @@
         <% else %>
           <%= cl_image_tag current_user.avatar, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
         <% end %>
-                 
-         
+
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Search flats", flats_path, class: "dropdown-item" %>
+            <% if !policy(Flat).user_is_host? %>
+              <%= link_to "My bookings", booking_index_path, class: "dropdown-item" %>
+            <% end %>
             <% if policy(Flat).user_is_host? %>
               <%= link_to "Create Flats", new_flat_path, class: "dropdown-item" %>
               <%= link_to "My flats", flats_path(myflats: '1'), class: "dropdown-item" %>
+              <%= link_to "My bookings", bookings_as_owner_path, class: "dropdown-item" %>
             <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
