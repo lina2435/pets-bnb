@@ -16,12 +16,17 @@
                 <%= cl_image_tag flat.photos.first.key, height: 150, width: 200, crop: :fill %>
               <% end %>
               <div class="card-trip-infos">
-                <div>
+                <div >
                   <h2><%= flat.title %></h2>
-                  <p><%= flat.description %></p>
+                  <p class="text-truncate"><%= flat.description %></p>
                 </div>
                 <h2 class="card-trip-pricing">S/.<%= flat.price_per_night %></h2>
-                <img src="https://source.unsplash.com/1600x900/?faces" class="card-trip-user avatar-bordered" />
+             <% if !flat.user.avatar.attached? %>
+          <%= image_tag "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg", class: "avatar-bordered  dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= cl_image_tag flat.user.avatar, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+        <% end %>
+                 
               </div>
             </div>
           <% end %>
