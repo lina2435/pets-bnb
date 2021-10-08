@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: :show
   def upgrade_to_host
     @user = User.find(current_user.id)
     @user.host = true
