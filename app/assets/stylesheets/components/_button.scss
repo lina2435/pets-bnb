@@ -2,13 +2,13 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: $light-blue;
+  background: $last;
   transition: background 0.3s ease;
   font-weight: bold;
 
   &:hover {
-  background: $light-blue-pale;
-  color: white;
+    background: $light-blue-pale;
+    color: white;
   }
 }
 
@@ -21,7 +21,7 @@
   font-weight: bold;
 
   &:hover {
-  background: $light-blue-pale;
-  color: white;
+    background: $light-blue-pale;
+    color: white;
   }
 }
