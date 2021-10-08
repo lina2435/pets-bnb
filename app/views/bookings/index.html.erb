@@ -1,19 +1,22 @@
 <div class="container mt-5">
+  <div class="text-center">
   <h3>My bookings</h3>
+  </div>
   <% @bookings.each do |booking| %>
   <% if policy(booking).show? %>
-  <div class="notification">
-    <div class="notification-content">
-      <p><strong><%= booking.status.capitalize %></strong></p>
-      <p>Number of days: <%= booking.number_of_days %></p>
-      <p>Total price: S/. <%= booking.total_price %></p>
-      <p>Start date: <%= booking.start_date %></p>
-      <p>End date: <%= booking.end_date %></p>
-      <p>Flat: <%= booking.flat.title %></p>
-    </div>
-
-    <div class="notification-actions">
-      <%= link_to "Back", root_path, class: "btn btn-info" %>
+  <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card-product my-3">
+          <%= cl_image_tag booking.flat.photos.first.key%>
+          <div class="card-product-infos">
+            <h2><%= booking.status.capitalize %></h2>
+            <p>Total price: S/. <%= booking.total_price %></p>
+            <p>Start date: <%= booking.start_date.strftime("%d de %b del %Y") %></p>
+            <p>End date: <%= booking.end_date.strftime("%d de %b del %Y") %></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <%end %>
