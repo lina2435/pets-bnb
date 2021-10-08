@@ -68,6 +68,15 @@ h3 {
   width: 40px;
 }
 
+.container-form{
+  width: 500px;
+  margin: 0 auto;
+}
+
+.t-center{
+  text-align: center;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

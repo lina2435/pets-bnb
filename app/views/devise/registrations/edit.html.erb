@@ -1,20 +1,20 @@
-<div class="container">
+<div class="container-form mt-4">
   <h2>Edit <%= resource_name.to_s.humanize %>
   </h2>
-  <p>Hola Mundo</p>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     %>
     <%= f.error_notification %>
-                    <% if resource.avatar.attached? %>
-                      <%= image_tag resource.avatar, height:100, width:100, class: "rounded-circle" %>
-                        <% else %>
-                          <%= image_tag gravatar_image_url(current_user.email), height:100, width:100, class: "rounded-circle" %>
-
-                        <% end %>
-              
-                    <%= f.file_field :avatar %>
+   
                 
       <div class="form-inputs">
+       <% if resource.avatar.attached? %>
+      <%= image_tag resource.avatar, height:100, width:100, class: "rounded-circle" %>
+        <% else %>
+          <%= image_tag gravatar_image_url(current_user.email), height:100, width:100, class: "rounded-circle" %>
+
+        <% end %>
+
+    <%= f.file_field :avatar %>
         <%= f.input :email, required: true, autofocus: true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -29,17 +29,17 @@
                   <%= f.input :current_password, hint: "we need your current password to confirm your changes" ,
                     required: true, input_html: { autocomplete: "current-password" } %>
       </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Update" %>
+      <div class="form-actions t-center">
+        <%= f.button :submit, "Update", class: "btn btn-flat" %>
+        
       </div>
+      <div class="t-center">
+      <%= link_to "Home" , :back %>
+       </div>
+
       <% end %>
 
-        <h3>Cancel my account</h3>
 
-        <p>Unhappy? <%= link_to "Cancel my account" , registration_path(resource_name), data: { confirm: "Are you sure?"
-            }, method: :delete %>
-        </p>
-
-        <%= link_to "Back" , :back %>
+        
+      
 </div>
