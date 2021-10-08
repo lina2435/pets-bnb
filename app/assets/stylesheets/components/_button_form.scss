@@ -1,0 +1,46 @@
+.btn-form {
+  color: white;
+  padding: 12px 28px;
+  border-radius: 4px;
+  background: $nani;
+  transition: background 0.2s ease;
+  font-weight: bold;
+  border-color: transparent;
+  font-size: 17px;
+  &:hover {
+    background: $nani-hover;
+    color: white;
+  }
+}
+
+.btn-form-cancel {
+  color: $red !important;
+  padding: 14px 44px;
+  border-radius: 4px;
+  background: transparent;
+  transition: background 0.4s ease;
+  font-weight: bold;
+  border-color: transparent;
+  font-size: 17px;
+  text-decoration: none !important;
+  display: inline-block;
+  &:hover {
+    background: rgba($red, 0.1);
+  }
+}
+.btn-filters {
+  color: $nani !important;
+  padding: 8px 30px;
+  border-radius: 4px;
+  background: transparent;
+  transition: background 0.4s ease;
+  font-weight: bold;
+  border-color: transparent;
+  font-size: 17px;
+  text-decoration: none !important;
+  display: inline-block;
+  margin-bottom: -16px;
+  &:hover {
+    background: rgba($red, 0.1);
+  }
+}
