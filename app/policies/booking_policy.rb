@@ -4,6 +4,18 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
+    record.user_id == user.id
+  end
+
+  def bookings_as_owner?
+    true
+  end
+
+  def destroy?
+    true
+  end
+
+  def index?
     true
   end
 
