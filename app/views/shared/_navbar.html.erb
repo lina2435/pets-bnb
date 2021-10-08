@@ -23,9 +23,7 @@
         <% end %>
         </li>
         <li class="nav-item dropdown">
-              <%= image_tag current_user.avatar, class: "avatar-bordered" %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
             <% if !policy(Flat).user_is_host? %>
             <%= link_to "Search flats", flats_path, class: "dropdown-item" %>
             <%= link_to "My bookings", booking_index_path, class: "dropdown-item" %>
