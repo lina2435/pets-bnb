@@ -16,6 +16,33 @@ class FlatsController < ApplicationController
         lng: flat.longitude
       }
     end
+
+    if params[:priceRange].present?
+      @query_price = params[:priceRange]
+      if @query_price  == "1"
+        puts "aqui"
+        @flats = @flats.where("price_per_night < 100")
+      elsif @query_price == "2"
+        puts "aki2"
+        @flats.where('price_per_night BETWEEN 100 AND 200')
+      elsif @query_price == "3"
+        puts "aki3"
+        @flats.where("price_per_night > 200")
+      end
+    end
+
+    if params[:petRange].present?
+      @query_pet_range = params[:petRange]
+      if @query_pet_range  == "1"
+        @flats.where("number_of_pets == 1")
+      elsif @query_pet_range == "2"
+        @flats.where('number_of_pets == 2')
+      elsif @query_pet_range == "3"
+        @flats.where("number_of_pets == 3")
+      elsif @query_pet_range == "4"
+        @flats.where("number_of_pets>= 4")
+      end
+    end
   end
 
   def build_flat_path(flat)
@@ -75,4 +102,5 @@ class FlatsController < ApplicationController
   def flat_params
     params.require(:flat).permit(:title, :address, :number_of_pets, :price_per_night, :description, photos: [])
   end
+
 end

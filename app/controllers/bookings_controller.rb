@@ -1,6 +1,12 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
+  end
+
+  def bookings_as_owner
+    skip_authorization
+    @bookings = current_user.bookings_as_owner
+    render :bookings_as_owner
   end
 
   def show
@@ -10,14 +16,18 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    skip_authorization
     @booking = Booking.find(params[:id])
     @flat = Flat.find(params[:flat_id])
   end
 
   def update
+    skip_authorization
+    @flat = Flat.find(params[:flat_id])
     @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
     if @booking.update(booking_params)
-      redirect_to flats_path
+      redirect_to bookings_as_owner_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -48,7 +58,8 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to flats_path
+    redirect_to bookings_as_owner_path
+    authorize @booking
   end
 
   private
