@@ -30,9 +30,9 @@
         </div>
         <div class="col-2">
         <% if !@flat.user.avatar.attached? %>
-          <%= image_tag "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg", class: "avatar-bordered  dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg", class: "avatar-bordered  dropdown-toggle" %>
         <% else %>
-          <%= cl_image_tag @flat.user.avatar, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+          <%= cl_image_tag @flat.user.avatar.key, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown" %>
         <% end %>
                  
         </div>
