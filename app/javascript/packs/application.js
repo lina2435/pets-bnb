@@ -33,5 +33,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initMapbox();
   initAutocomplete();
-  initUpdateNavbarOnScroll();
+  // initUpdateNavbarOnScroll();
 });
