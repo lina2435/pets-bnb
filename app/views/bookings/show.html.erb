@@ -1,15 +1,14 @@
-<div class="booking-confirmation-card">
-  <div class="container">
+
+  <div class="container my-5">
     <h3>The booking has been sent with booking id: <%= @booking.id %></h3>
     <p>You will receive and answer in 24 hours</p>
     <p>Stard date : <%= @booking.start_date %></p>
     <p>End date : <%= @booking.end_date %></p>
     <p>Days : <%= @booking.number_of_days %></p>
     <p>Total price (S/.) : <%= @booking.total_price %></p>
-    <button class="btn btn-flat"><%= link_to "Home", root_path%></button>
+    <%= link_to "Home", root_path, class: "btn-form"%>
     <%= link_to "Cancel Booking",
             root_path,
             method: :delete,
-            data: { confirm: "Are you sure?" }, class: "btn btn-cancel" %>
+            data: { confirm: "Are you sure?" }, class: "btn-form-cancel" %>
   </div>
-</div>
