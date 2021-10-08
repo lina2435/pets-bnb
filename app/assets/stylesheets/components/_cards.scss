@@ -11,28 +11,32 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 h3 {
-    margin: 0;
-    margin-bottom: 5px;
-    color: $dark-brown;
-    font-size: 24px;
-    font-weight: bold;
+  margin: 0;
+  margin-bottom: 5px;
+  color: $dark-brown;
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 20px;
 }
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
 
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .card-trip > img {
@@ -40,7 +44,6 @@ h3 {
   width: 100%;
   object-fit: cover;
 }
-
 .card-trip h2 {
   font-size: 16px;
   font-weight: bold;
@@ -49,7 +52,7 @@ h3 {
 
 .card-trip p {
   font-size: 12px;
-  opacity: .7;
+  opacity: 0.7;
   margin: 0;
 }
 
@@ -68,13 +71,19 @@ h3 {
   width: 40px;
 }
 
-.container-form{
+.container-form {
   width: 500px;
   margin: 0 auto;
 }
 
-.t-center{
+.t-center {
   text-align: center;
+}
+.card-trip-description {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
 }
 
 // Smallest device
@@ -112,7 +121,7 @@ h3 {
   }
 }
 
-.card-columns{
+.card-columns {
   max-height: 233px;
   overflow: overlay;
 }
@@ -126,7 +135,6 @@ h3 {
   }
 }
 
-
 .booking-confirmation-card {
   height: 400px;
   margin-top: 10px;
@@ -138,15 +146,15 @@ h3 {
   background-color: white;
   font-size: 15px;
   font-weight: lighter;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 .card-product {
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
 }
@@ -167,7 +175,7 @@ h3 {
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
 }
