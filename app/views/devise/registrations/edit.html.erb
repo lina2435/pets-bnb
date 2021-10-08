@@ -10,7 +10,7 @@
        <% if resource.avatar.attached? %>
       <%= image_tag resource.avatar, height:100, width:100, class: "rounded-circle" %>
         <% else %>
-          <%= image_tag gravatar_image_url(current_user.email), height:100, width:100, class: "rounded-circle" %>
+           <%= image_tag "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg", class: "rounded-circle", height:100, width:100%>
 
         <% end %>
 
